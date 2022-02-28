@@ -8,7 +8,7 @@ form.addEventListener("submit", (event) => {
     if(userCorrect(userName, userPassword)){
         //go to contacts.html (with contacts of the user)
     }else{
-        //show message error
+        //show message error (incomplete data)
     }
 })
 
@@ -17,6 +17,17 @@ function userCorrect(userName, userPassword){
     if(!userName || !userPassword){
         return false;
     }
+
+    const req = await fetch(`http://localhost:3000/getPassword/${userName}`)
+    const userData = await req.json()
     
-    //conect to the api to validate the user (connecting to the database)
+    return validateUser(userData, userPassword)
+}
+
+function validateUser(userData, userPassword){
+    if(!userData.password || userData.password !== userPassword){
+        return false;
+    }
+
+    return true;
 }
