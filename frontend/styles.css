@@ -5,7 +5,7 @@
     --light-blue: rgb(133, 207, 203);
 }
 
-*{
+body{
     background-color: var(--main-color);
     color: var(--medium-blue);
 }
@@ -52,4 +52,11 @@
     height: 50%;
     background-color: white;
     color: var(--main-color);
+}
+
+#error{
+    font-size: small;
+    background-color: red;
+    text-align: center;
+    width: 300px;
 }

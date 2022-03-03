@@ -1,19 +1,22 @@
 const form = document.getElementById("form");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const userName = event.target.name.value;
     const userPassword = event.target.password.value;
 
-    if(userCorrect(userName, userPassword)){
+    const isUserCorrect = await userCorrect(userName, userPassword)
+    if(isUserCorrect){
         //go to contacts.html (with contacts of the user)
+        console.log("Contraseña correcta")
     }else{
         //show message error (incomplete data)
+        console.log("Contraseña incorrecta")
     }
 })
 
 
-function userCorrect(userName, userPassword){
+async function userCorrect(userName, userPassword){
     if(!userName || !userPassword){
         return false;
     }

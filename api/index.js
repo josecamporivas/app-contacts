@@ -1,8 +1,10 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 3000
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -14,7 +16,11 @@ app.get('/getPassword/:userName', function (req, res) {
         userName: blablabla,
         password: blablabla
     } */
-  res.send('Hello World')
+    console.log(userName)
+    res.send({
+      name: userName,
+      password: "password"
+    })
 })
 
 app.listen(port)
