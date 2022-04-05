@@ -16,6 +16,7 @@ body{
     left: 25%; */
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 #signUp{
@@ -55,8 +56,26 @@ body{
 }
 
 #error{
+    display: none;
+    margin: auto;
     font-size: small;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.445);
     text-align: center;
     width: 300px;
+    border-radius: 5px;
+}
+
+#contacts{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16%;
+    grid-column-gap: 5%;
+    grid-row-gap: 8px;
+}
+
+#contacts > div{
+    border: 1px solid var(--dark-blue);
+    border-radius: 10px;
+    padding: 0px;
+    margin: 0px;
 }
