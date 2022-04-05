@@ -1,4 +1,5 @@
 const form = document.getElementById("form");
+const errorMsg = document.getElementById("error");
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -9,9 +10,13 @@ form.addEventListener("submit", async (event) => {
     if(isUserCorrect){
         //go to contacts.html (with contacts of the user)
         console.log("Contraseña correcta")
+        errorMsg.style.display = "none";
+        window.location.href = "contacts.html"
+        
     }else{
         //show message error (incomplete data)
         console.log("Contraseña incorrecta")
+        errorMsg.style.display = "block";
     }
 })
 
