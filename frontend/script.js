@@ -9,13 +9,11 @@ form.addEventListener("submit", async (event) => {
     const isUserCorrect = await userCorrect(userName, userPassword)
     if(isUserCorrect){
         //go to contacts.html (with contacts of the user)
-        console.log("Contraseña correcta")
         errorMsg.style.display = "none";
         window.location.href = "contacts.html"
         
     }else{
         //show message error (incomplete data)
-        console.log("Contraseña incorrecta")
         errorMsg.style.display = "block";
     }
 })
