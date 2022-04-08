@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 
+//sample of possible contacts, they should be in a DataBase 
 const contacts = [
   {
       "id": 1,
@@ -194,20 +195,28 @@ app.get('/', function (req, res) {
 })
 app.get('/getPassword/:userName', function (req, res) {
     const userName = req.params.userName
-    //search in database the password of the user name and send it
     /* format of the response --> {
         userName: blablabla,
         password: blablabla
     } */
-    console.log(userName)
-    res.send({
+    
+    res.send({          //to make the app easier, the user should have the same userName and password
       name: userName,
-      password: "password"
+      password: userName
     })
 })
 
 app.get('/getContacts', function(req, res){
   res.send(contacts);
+})
+
+app.post('/setContact', function(req, res){
+    const dataUser = req.body
+    
+    dataUser.id = contacts.length + 1;  //adding the next id avaliable in the contacts
+    console.log(dataUser)
+
+    contacts.push(dataUser);
 })
 
 app.listen(port)
